@@ -1,0 +1,12 @@
+.productList {
+  margin: 5rem auto;
+  .title {
+    font-weight: 600;
+    font-size: 1em;
+    // text-transform: uppercase;
+  }
+  .grid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}

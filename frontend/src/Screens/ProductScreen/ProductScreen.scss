@@ -1,0 +1,31 @@
+.productScreen {
+  margin: 5rem auto;
+
+  .info {
+    .title {
+      font-size: 1.5em;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .tags {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .tag-text {
+      padding: 0.2rem 0.5rem;
+      background-color: #f0f0f0;
+      width: fit-content;
+    }
+
+    .description {
+      margin: 1rem 0;
+    }
+
+    .addToCart {
+      margin-top: 1rem;
+      padding: 0.5rem;
+    }
+  }
+}

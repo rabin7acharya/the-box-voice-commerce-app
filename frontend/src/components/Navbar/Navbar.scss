@@ -1,0 +1,29 @@
+.navbar {
+  .logo {
+    width: 3rem;
+  }
+
+  .links {
+    a {
+      text-decoration: none;
+      font-weight: 400 !important;
+      color: #000;
+      font-size: 1em !important;
+    }
+  }
+
+  .right {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    // justify-content: center;
+    .bi-person {
+      width: 1.4rem;
+      height: 1.4rem;
+    }
+    .bi-bag {
+      width: 1.1rem;
+      height: 1.1rem;
+    }
+  }
+}
