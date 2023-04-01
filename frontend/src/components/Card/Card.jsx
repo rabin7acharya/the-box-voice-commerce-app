@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 const Card = ({ product }) => {
   return (
     <div className="edge p-2 col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
-      <Link className="link" to={`/product/${product.id}`}>
+      <Link className="link" to={`/product/${product._id}`}>
         <div className="itemCard">
           <div className="images">
-            <img src={product.img1} alt="" className="mainImg" />
+            <img src={product.image1} alt="" className="mainImg" />
           </div>
 
           <div className="info">
