@@ -33,16 +33,16 @@ const ProductScreen = () => {
       ) : (
         <div className="productScreen container d-flex flex-wrap">
           <div className="wrapper pe-0 pe-sm-0 pe-md-3 pe-lg-3 pe-xl-3  col-12 col-sm-12 col-md-6 col-xl-6 col-lg-6">
-            <img src={product.image1} alt="" className="col-12" />
+            <img src={product.image1} alt="" className="image col-12" />
           </div>
           <div className="info ps-0 ps-sm-0 ps-md-3 ps-lg-3 ps-xl-3 pt-3 pt-sm-3 pt-md-0 pt-lg-0 pt-xl-0 col-12 col-sm-12 col-md-6 col-xl-6 col-lg-6">
             <p className="title">{product.title} </p>
             <div className="tags">
-              <p className="tag-text rounded">{product.category}</p>
-              <p className="brand tag-text rounded">{product.brand}</p>
+              <p className="badge text-bg-dark ">{product.category}</p>
+              <p className="badge text-bg-dark">{product.brand}</p>
             </div>
             <Rating value={product.rating} count={product.numReviews} />
-            <p className="description">{product.description}</p>
+            <p className="paragraphText mt-3">{product.description}</p>
             <p className="stock">
               Status:{" "}
               <strong>

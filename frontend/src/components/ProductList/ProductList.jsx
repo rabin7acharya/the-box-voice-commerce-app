@@ -17,7 +17,7 @@ const ProductList = () => {
 
   return (
     <div className="productList">
-      <p className="text-center title">Latest Products</p>
+      <p className="text-center headerText">Discover Our Latest Products</p>
       {loading ? (
         <Loader />
       ) : error ? (

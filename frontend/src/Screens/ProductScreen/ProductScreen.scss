@@ -1,13 +1,20 @@
 .productScreen {
   margin: 5rem auto;
 
+  .image {
+    border-radius: 1rem;
+  }
+
   .info {
     .title {
       font-size: 1.5em;
       font-weight: 600;
       margin-bottom: 0.5rem;
     }
-
+    .paragraphText {
+      font-size: 1em;
+      color: #5c5c5c;
+    }
     .tags {
       display: flex;
       gap: 0.5rem;
@@ -15,7 +22,7 @@
 
     .tag-text {
       padding: 0.2rem 0.5rem;
-      background-color: #f0f0f0;
+      background-color: #f7f7f7;
       width: fit-content;
     }
 
@@ -35,8 +42,8 @@
 
       select {
         padding: 0.5rem;
-        border: 1px solid #f2f2f2;
-        background-color: #f2f2f2;
+        border: 1px solid #f7f7f7;
+        background-color: #f7f7f7;
         border-radius: 0.5rem;
         font-weight: 600;
       }

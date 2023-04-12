@@ -1,0 +1,22 @@
+.featuredSection {
+  .header {
+    font-size: 2em;
+    font-weight: 700;
+  }
+
+  .box {
+    border: 1px solid black;
+    padding: 2rem;
+    border-radius: 1.5rem;
+
+    .subHeader {
+      font-size: 1.5em;
+      font-weight: 700;
+    }
+
+    .paragraphText {
+      font-size: 1em;
+      color: #5c5c5c;
+    }
+  }
+}

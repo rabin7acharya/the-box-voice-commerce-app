@@ -14,7 +14,7 @@ const Categories = () => {
   return (
     <div className="category">
       <div className="top">
-        <p className="title">Categories</p>
+        <p className="header text-center">Our Product Categories</p>
       </div>
       <div className="bottom">
         <div className="category-wrapper col-6 col-sm-6 col-md-4 col col-lg-4 col-xl-4">
@@ -33,7 +33,7 @@ const Categories = () => {
               className="box shoes"
               style={{ backgroundImage: `url(${shoes})` }}
             >
-              Shoes
+              <p className="header">Shoes</p>
             </div>
           </a>
         </div>

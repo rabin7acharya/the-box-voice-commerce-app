@@ -1,0 +1,28 @@
+.profileScreen {
+  margin-top: 5rem;
+
+  input {
+    border: none;
+    outline: none;
+  }
+
+  .left {
+    .leftWrapper {
+      border-radius: 1rem;
+      background-color: #f7f7f7;
+    }
+  }
+
+  .right {
+    .rightWrapper {
+      border-radius: 1rem;
+      background-color: #f7f7f7;
+    }
+  }
+
+  .headerText {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+}

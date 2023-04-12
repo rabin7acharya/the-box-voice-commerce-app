@@ -4,7 +4,7 @@ const Message = ({ variant, children }) => {
   return (
     <div
       variant={variant}
-      class=" mt-5 container alert alert-danger border-0"
+      className="container alert alert-danger border-0"
       role="alert"
     >
       {children}

@@ -9,7 +9,7 @@
 }
 .itemCard {
   border: 1px solid transparent;
-  border-radius: 0.2rem;
+  border-radius: 1rem;
   overflow: hidden;
   &:hover {
     // border: 1px solid #000;
@@ -54,7 +54,8 @@
   }
 
   .info {
-    padding: 1rem 0;
+    padding: 1.5rem;
+    background-color: #f7f7f7;
     .info-top {
       display: flex;
       align-items: center;

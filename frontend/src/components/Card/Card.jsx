@@ -14,11 +14,13 @@ const Card = ({ product }) => {
 
           <div className="info">
             <div className="info-top">
-              <p className="title m-0 p-0">{product.title}</p>
-              <p className="price m-0 p-0">${product.price}</p>
+              <p className="title mb-1 p-0">{product.title}</p>
+              <p className="price mb-1 p-0">${product.price}</p>
             </div>
             <div className="info-bottom">
               <Rating value={product.rating} count={product.numReviews} />
+              <p className="badge text-bg-dark mt-2 me-1">{product.brand}</p>
+              <p className="badge text-bg-dark">{product.category}</p>
             </div>
           </div>
         </div>
