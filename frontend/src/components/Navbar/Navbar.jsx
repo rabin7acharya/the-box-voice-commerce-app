@@ -10,6 +10,8 @@ const Navbar = () => {
   const userLogin = useSelector((state) => state.userLogin);
   const [openDropdown, setOpenDropdown] = useState(false);
   const { userInfo } = userLogin;
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
 
   const toggleDropdown = () => setOpenDropdown(!openDropdown);
 
@@ -105,7 +107,7 @@ const Navbar = () => {
               </Link>
             )}
             <Link to={"/cart"} className="btn btn-dark btn-sm">
-              Cart: 0
+              Cart: ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
             </Link>
           </div>
         </div>

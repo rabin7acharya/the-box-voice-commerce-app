@@ -9,6 +9,7 @@ import men from "../../img/men.png";
 import women from "../../img/women.png";
 import newseason from "../../img/newseason.png";
 import unisex from "../../img/unisex.png";
+import { Link } from "react-router-dom";
 
 const Categories = () => {
   return (
@@ -18,74 +19,55 @@ const Categories = () => {
       </div>
       <div className="bottom">
         <div className="category-wrapper col-6 col-sm-6 col-md-4 col col-lg-4 col-xl-4">
-          <a className="link" href={"/products/1"}>
-            <div
-              className="box sale"
-              style={{ backgroundImage: `url(${sale})` }}
-            >
-              Sale
-            </div>
-          </a>
-        </div>
-        <div className="category-wrapper col-6 col-sm-6 col-md-4 col col-lg-4 col-xl-4">
-          <a className="link">
+          <Link className="link" to="/category/shoes">
             <div
               className="box shoes"
               style={{ backgroundImage: `url(${shoes})` }}
             >
               <p className="header">Shoes</p>
             </div>
-          </a>
+          </Link>
         </div>
         <div className="category-wrapper col-12 col-sm-12 col-md-4 col col-lg-4 col-xl-4">
-          <a className="link">
+          <Link to="/category/jackets" className="link">
             <div
               className="box jackets"
               style={{ backgroundImage: `url(${jackets})` }}
             >
               Jackets
             </div>
-          </a>
+          </Link>
         </div>
         <div className="category-wrapper col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-          <a className="link">
+          <Link to="/category/t-shirts" className="link">
             <div
               className="box male large"
               style={{ backgroundImage: `url(${men})` }}
             >
-              Men
+              T Shirts
             </div>
-          </a>
+          </Link>
         </div>
-        <div className="category-wrapper col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
-          <a className="link">
-            <div
-              className="box female large"
-              style={{ backgroundImage: `url(${women})` }}
-            >
-              Women
-            </div>
-          </a>
-        </div>
+
         <div className="category-wrapper col-6 col-sm-6 col-md-5 col-lg-5 col-xl-5">
-          <a className="link">
+          <Link to="/category/wear" className="link">
             <div
               className="box new"
               style={{ backgroundImage: `url(${newseason})` }}
             >
-              New Season
+              Wear
             </div>
-          </a>
+          </Link>
         </div>
         <div className="category-wrapper col-6 col-sm-6 col-md-7 col-lg-7 col-xl-7">
-          <a className="link">
+          <Link to="/category/sweaters" className="link">
             <div
               className="box unisex"
               style={{ backgroundImage: `url(${unisex})` }}
             >
-              Unisex
+              Sweaters
             </div>
-          </a>
+          </Link>
         </div>
       </div>
 
