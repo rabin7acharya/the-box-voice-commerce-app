@@ -3,6 +3,10 @@
     width: 3rem;
   }
 
+  .nav-item {
+    list-style: none;
+  }
+
   .links {
     a {
       text-decoration: none;
@@ -16,7 +20,7 @@
     display: flex;
     gap: 0.5rem;
     align-items: center;
-    // justify-content: center;
+    justify-content: between;
     .bi-person {
       width: 1.4rem;
       height: 1.4rem;

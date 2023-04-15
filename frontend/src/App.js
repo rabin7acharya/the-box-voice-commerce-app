@@ -14,6 +14,8 @@ import LoginScreen from "./Screens/LoginScreen/LoginScreen";
 import ProfileScreen from "./Screens/ProfileScreen/ProfileScreen";
 import RegisterScreen from "./Screens/RegisterScreen/RegisterScreen";
 import OrderScreen from "./Screens/OrderScreen/OrderScreen";
+import UserListScreen from "./Screens/UserListScreen/UserListScreen";
+import UserEditScreen from "./Screens/UserEditScreen/UserEditScreen";
 
 import useAlan from "./useAlan";
 
@@ -42,6 +44,8 @@ const router = createBrowserRouter([
       { path: "/profile", element: <ProfileScreen /> },
       { path: "/product/:id", element: <ProductScreen /> },
       { path: "/cart/:id?", element: <CartScreen /> },
+      { path: "/admin/userlist", element: <UserListScreen /> },
+      { path: "/admin/user/:id/edit", element: <UserEditScreen /> },
       { path: "/category/:category", element: <CategoryScreen /> },
       { path: "/", element: <HomeScreen /> },
     ],
