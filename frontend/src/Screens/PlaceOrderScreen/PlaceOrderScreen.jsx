@@ -1,17 +1,24 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../../components/Message/Message";
 import FormContainer from "../../components/FormContainer/FormContainer";
 import CheckoutSteps from "../../components/CheckoutSteps/CheckoutSteps";
+import { createOrder } from "../../actions/orderActions";
 import "./PlaceOrderScreen.scss";
 
 const PlaceOrderScreen = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cart);
 
   // Calculate prices
+
+  const addDecimals = (num) => {
+    return (Math.round(num * 100) / 100).toFixed(2);
+  };
+
   cart.itemsPrice = cart.cartItems.reduce(
     (acc, item) => acc + item.price * item.qty,
     0
@@ -27,8 +34,28 @@ const PlaceOrderScreen = () => {
     Number(cart.taxPrice)
   ).toFixed(2);
 
+  const orderCreate = useSelector((state) => state.orderCreate);
+  const { order, success, error } = orderCreate;
+
+  useEffect(() => {
+    if (success) {
+      navigate(`/order/${order._id}`);
+    }
+    // eslint-disable-next-line
+  }, [navigate, success]);
+
   const placeOrderHandler = () => {
-    console.log("order");
+    dispatch(
+      createOrder({
+        orderItems: cart.cartItems,
+        shippingAddress: cart.shippingAddress,
+        paymentMethod: cart.paymentMethod,
+        itemsPrice: cart.itemsPrice,
+        shippingPrice: cart.shippingPrice,
+        taxPrice: cart.taxPrice,
+        totalPrice: cart.totalPrice,
+      })
+    );
   };
 
   return (
@@ -106,6 +133,7 @@ const PlaceOrderScreen = () => {
               <h5>Total</h5>
               <h5>$ {cart.totalPrice}</h5>
             </div>
+            {error && <Message variant="danger">{error}</Message>}
             <div className="mt-3">
               <button
                 type="button"

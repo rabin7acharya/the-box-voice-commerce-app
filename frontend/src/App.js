@@ -1,36 +1,39 @@
-import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom"
-import "./App.css"
-import HomeScreen from "./Screens/HomeScreen/HomeScreen"
-import PaymentScreen from "./Screens/PaymentScreen/PaymentScreen"
-import PlaceOrderScreen from "./Screens/PlaceOrderScreen/PlaceOrderScreen"
-import ProductScreen from "./Screens/ProductScreen/ProductScreen"
-import ShippingScreen from "./Screens/ShippingScreen/ShippingScreen"
-import Footer from "./components/Footer/Footer"
-import Navbar from "./components/Navbar/Navbar"
+import { Outlet, RouterProvider, createBrowserRouter } from "react-router-dom";
+import "./App.css";
+import HomeScreen from "./Screens/HomeScreen/HomeScreen";
+import PaymentScreen from "./Screens/PaymentScreen/PaymentScreen";
+import PlaceOrderScreen from "./Screens/PlaceOrderScreen/PlaceOrderScreen";
+import ProductScreen from "./Screens/ProductScreen/ProductScreen";
+import ShippingScreen from "./Screens/ShippingScreen/ShippingScreen";
+import Footer from "./components/Footer/Footer";
+import Navbar from "./components/Navbar/Navbar";
 
-import CartScreen from "./Screens/CartScreen/CartScreen"
-import CategoryScreen from "./Screens/CategoryScreen/CategoryScreen"
-import LoginScreen from "./Screens/LoginScreen/LoginScreen"
-import ProfileScreen from "./Screens/ProfileScreen/ProfileScreen"
-import RegisterScreen from "./Screens/RegisterScreen/RegisterScreen"
-import useAlan from "./useAlan"
+import CartScreen from "./Screens/CartScreen/CartScreen";
+import CategoryScreen from "./Screens/CategoryScreen/CategoryScreen";
+import LoginScreen from "./Screens/LoginScreen/LoginScreen";
+import ProfileScreen from "./Screens/ProfileScreen/ProfileScreen";
+import RegisterScreen from "./Screens/RegisterScreen/RegisterScreen";
+import OrderScreen from "./Screens/OrderScreen/OrderScreen";
+
+import useAlan from "./useAlan";
 
 const Layout = () => {
-  useAlan()
+  useAlan();
   return (
     <>
       <Navbar />
       <Outlet />
       <Footer />
     </>
-  )
-}
+  );
+};
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
     children: [
+      { path: "/order/:id", element: <OrderScreen /> },
       { path: "/shipping", element: <ShippingScreen /> },
       { path: "/payment", element: <PaymentScreen /> },
       { path: "/placeorder", element: <PlaceOrderScreen /> },
@@ -43,7 +46,7 @@ const router = createBrowserRouter([
       { path: "/", element: <HomeScreen /> },
     ],
   },
-])
+]);
 
 function App() {
   // useEffect(() => {
@@ -58,7 +61,7 @@ function App() {
   //   })
   // }, [])
 
-  return <RouterProvider router={router} />
+  return <RouterProvider router={router} />;
 }
 
-export default App
+export default App;

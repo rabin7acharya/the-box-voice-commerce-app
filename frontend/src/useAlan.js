@@ -19,7 +19,7 @@ export default function useAlan() {
   const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
-  console.log(cartItems);
+  //console.log(cartItems);
   const dispatch = useDispatch();
 
   const openCart = useCallback(() => {

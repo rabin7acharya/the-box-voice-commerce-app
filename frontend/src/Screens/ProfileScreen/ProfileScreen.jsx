@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Message from "../../components/Message/Message";
 import Loader from "../../components/Loader/Loader";
 import { getUserDetails, updateUserProfile } from "../../actions/userActions";
+import { listMyOrders } from "../../actions/orderActions";
 import "./ProfileScreen.scss";
 
 const ProfileScreen = () => {
@@ -25,6 +26,9 @@ const ProfileScreen = () => {
   const userUpdateProfile = useSelector((state) => state.userUpdateProfile);
   const { success } = userUpdateProfile;
 
+  const orderListMy = useSelector((state) => state.orderListMy);
+  const { loading: loadingOrders, error: errorOrders, orders } = orderListMy;
+
   useEffect(() => {
     if (!userInfo) {
       navigate("/login");
@@ -32,6 +36,7 @@ const ProfileScreen = () => {
       if (!user.name) {
         dispatch(getUserDetails("profile"));
         console.log("user name: " + user.name);
+        dispatch(listMyOrders());
       } else {
         setName(user.name);
         setEmail(user.email);
@@ -120,6 +125,63 @@ const ProfileScreen = () => {
         <div className="right col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 p-2">
           <div className="rightWrapper p-4 p-sm-4 p-md-5 p-lg-5 p-xl-5">
             <h1 className="headerText">My Orders</h1>
+            {loadingOrders ? (
+              <Loader />
+            ) : errorOrders ? (
+              <Message variant="danger">{errorOrders}</Message>
+            ) : (
+              <table className="table table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">DATE</th>
+                    <th scope="col">TOTAL</th>
+                    <th scope="col">PAID</th>
+                    <th scope="col">DELIVERED</th>
+                    <th scope="col"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {orders.map((order) => (
+                    <tr key={order._id} className="tableRow col-12">
+                      <th scope="row">{order._id}</th>
+                      <td>{order.createdAt.substring(0, 10)}</td>
+                      <td>${order.totalPrice}</td>
+                      <td>
+                        {order.isPaid ? (
+                          order.paidAt.substring(0, 10)
+                        ) : (
+                          <i
+                            className="fas fa-times"
+                            style={{ color: "red" }}
+                          ></i>
+                        )}
+                      </td>
+                      <td>
+                        {order.isDelivered ? (
+                          order.deliveredAt.substring(0, 10)
+                        ) : (
+                          <i
+                            className="fas fa-times"
+                            style={{ color: "red" }}
+                          ></i>
+                        )}
+                      </td>
+                      <td>
+                        <button
+                          className="btn btn-dark btn-sm"
+                          onClick={() => {
+                            navigate(`/order/${order._id}`);
+                          }}
+                        >
+                          Details
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
           </div>
         </div>
       </div>
